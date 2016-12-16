@@ -41,9 +41,24 @@ La diferència està en que a un `URLConnection` permet més control en la conne
 
 Té un descendent molt usat que és `HttpURLConnection` que es fa servir per fer connexions específiques en HTTP
 
+Als objectes `HTTPURLConnection` se'ls hi poden definir diferents propietats:
+
+    novaConnexio.setRequestMethod("POST");
+    connection.setDoOutput(true);
+    connection.setReadTimeout(1000*6);
+    connection.setInstanceFollowRedirects(false);
+
+Cookies
+-------------
+Moltes pàgines fan servir cookies. El sistema se'n pot encarregar automàticament de la gestió de cookies si es crea un objecte CookieHandler:
+
+    CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
+
+Només cal que s'executi un cop abans de fer les connexions i el procés de Cookies serà automàtic.
+
 Activitat
------------------------------------
-L'aplicació web que fa falta per fer aquesta tasca la podeu descarregar [d’aquí](https://drive.google.com/file/d/0B1USLpQ7TipGUFNSSTB3aWRTemc/view?usp=sharing). Podeu executar-lo en local amb Java:
+==================================
+L'aplicació web que fa falta per fer aquesta tasca la podeu descarregar [d’aquí](https://drive.google.com/file/d/0B1USLpQ7TipGUFNSSTB3aWRTemc/view?usp=sharing). Podeu executar-la en local amb Java:
 
     $ java -jar Lluitadors.jar
 
